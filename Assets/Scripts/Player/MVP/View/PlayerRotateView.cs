@@ -8,9 +8,5 @@ public class PlayerRotateView : BasePlayerView
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    public void SetDirectionAction(Vector2 direction)
-    {
-        Presenter.SetRotation(direction, ref _xRotation);
-    }
-
+    public void SetDirectionAction(Vector2 direction) => Presenter.SetRotation(direction, ref _xRotation);
 }

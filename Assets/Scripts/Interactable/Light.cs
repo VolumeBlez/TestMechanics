@@ -5,9 +5,9 @@ public class Light : MonoBehaviour, IInteractable
     [SerializeField] private GameObject _light;
     [SerializeField] private bool _isLightActive = false;
 
-    public void Interact()
+    public void Interact(IPlayerPresenter presenter)
     {
-        _isLightActive = _isLightActive? false : true;
+        _isLightActive = !_isLightActive;
         _light.SetActive(_isLightActive);
     }
 

@@ -1,14 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerPresenter : IPlayerPresenter
+public sealed class PlayerPresenter : IPlayerPresenter
 {
-    private IPlayerModel _model;
-    
-    public PlayerPresenter(IPlayerModel model) 
-    {
-        _model = model;
-    }
+    private readonly IPlayerModel _model;
+
+    public PlayerHealth Health => _model.Health;
+    public PlayerInventory Inventory => _model.Inventory;
+
+    public PlayerPresenter(IPlayerModel model) => _model = model;
 
     public void SetNewMoveSpeed(float newMoveSpeed) 
     {
@@ -39,9 +39,7 @@ public class PlayerPresenter : IPlayerPresenter
         if(Physics.Raycast(ray, out RaycastHit hit, 10f))
         {
             if(hit.transform.TryGetComponent(out IInteractable interactable))
-            {
-                interactable.Interact();
-            }
+                interactable.Interact(this);
         }
     }
 }

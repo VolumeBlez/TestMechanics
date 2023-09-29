@@ -17,15 +17,7 @@ public class PlayerMoveView : BasePlayerView
         }
     }
 
-    public void SetDirectionAction(Vector2 direction)
-    {
-        _newDirection = direction;
-    }
-    
-    public void ResetAction()
-    {
-        _newDirection = Vector3.zero;
-    }
+    public void SetDirectionAction(Vector2 direction) => _newDirection = direction;
 
-
+    public void ResetAction() => _newDirection = Vector3.zero;
 }
