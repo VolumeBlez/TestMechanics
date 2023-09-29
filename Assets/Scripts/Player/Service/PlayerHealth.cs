@@ -6,9 +6,9 @@ public sealed class PlayerHealth
     public event Action HealthChanged;
 
     private readonly PlayerData _data;
-    private int currentHealth;
+    private int _currentHealth;
 
-    public int CurrentHealth { get => currentHealth; private set => currentHealth = value; }
+    public int CurrentHealth { get => _currentHealth; private set => _currentHealth = value; }
     public int MaxHealth => _data.MaxHealth;
 
     public PlayerHealth(PlayerData data)
@@ -19,20 +19,21 @@ public sealed class PlayerHealth
 
     public void Increment(int amount)
     {
-        currentHealth += amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, MaxHealth);
+        _currentHealth += amount;
+        _currentHealth = Mathf.Clamp(_currentHealth, 0, MaxHealth);
         UpdateHealth();
     }
 
     public void Decrement(int amount)
     {
-        currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, MaxHealth);
+        _currentHealth -= amount;
+        _currentHealth = Mathf.Clamp(_currentHealth, 0, MaxHealth);
         UpdateHealth();
     }
 
     public void UpdateHealth()
     {
-        HealthChanged.Invoke();
+        Debug.Log($"Health Changed! Current: {_currentHealth}");
+        HealthChanged?.Invoke();
     }
 }

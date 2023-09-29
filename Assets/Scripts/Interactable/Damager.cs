@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Damager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(other.transform.TryGetComponent(out PlayerPresenterView presenterView))
+        {
+            presenterView.Presenter.Health.Decrement(5);
+        }
     }
 }

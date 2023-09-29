@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Player Data
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  _moveSpeed: 3
+  _moveSpeed: 8
   _mouseSens: 7

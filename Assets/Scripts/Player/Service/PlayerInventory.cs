@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class PlayerInventory
 {
-    [SerializeField] private int _maxCount;
+    private int _maxCount = 4;
     private int _count = 0;
 
     public void Increase()
