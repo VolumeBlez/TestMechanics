@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public sealed class PlayerHealth
+public sealed class Health
 {
     public event Action HealthChanged;
 
@@ -11,7 +11,7 @@ public sealed class PlayerHealth
     public int CurrentHealth { get => _currentHealth; private set => _currentHealth = value; }
     public int MaxHealth => _data.MaxHealth;
 
-    public PlayerHealth(PlayerData data)
+    public Health(PlayerData data)
     {
         _data = data;
         CurrentHealth = data.MaxHealth;

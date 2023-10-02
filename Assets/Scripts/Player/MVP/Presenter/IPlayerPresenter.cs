@@ -2,8 +2,9 @@ using UnityEngine;
 
 public interface IPlayerPresenter
 {
-    PlayerHealth Health { get; }
+    Health Health { get; }
     PlayerInventory Inventory { get; }
+    FlashLight FlashLight { get; }
 
     void PerformRay();
     void SetNewMoveSpeed(float newSpeed);

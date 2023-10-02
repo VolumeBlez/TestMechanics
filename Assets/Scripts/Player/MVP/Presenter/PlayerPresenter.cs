@@ -5,8 +5,10 @@ public sealed class PlayerPresenter : IPlayerPresenter
 {
     private readonly IPlayerModel _model;
 
-    public PlayerHealth Health => _model.Health;
+    public Health Health => _model.Health;
     public PlayerInventory Inventory => _model.Inventory;
+
+    public FlashLight FlashLight => _model.FlashLight;
 
     public PlayerPresenter(IPlayerModel model) => _model = model;
 

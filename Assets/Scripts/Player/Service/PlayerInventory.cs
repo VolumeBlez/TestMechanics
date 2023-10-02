@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerInventory
+public sealed class PlayerInventory
 {
     private int _maxCount = 4;
     private int _count = 0;

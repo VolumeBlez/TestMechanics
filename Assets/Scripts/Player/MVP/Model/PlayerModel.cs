@@ -7,8 +7,9 @@ public class PlayerModel : IPlayerModel
     public Transform RotateObject { get; }
     public Camera Camera { get; }
 
-    public PlayerHealth Health { get; }
+    public Health Health { get; }
     public PlayerInventory Inventory { get; }
+    public FlashLight FlashLight { get; }
 
     public PlayerModel(PlayerData data, CharacterController controller, Transform rotateObject, Camera camera)
     {
@@ -19,5 +20,6 @@ public class PlayerModel : IPlayerModel
 
         Health = new(Data);
         Inventory = new();
+        FlashLight = new();
     }
 }

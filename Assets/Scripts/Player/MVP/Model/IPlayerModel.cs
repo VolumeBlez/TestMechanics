@@ -7,6 +7,7 @@ public interface IPlayerModel
     Transform RotateObject { get; }
     Camera Camera { get; }
 
-    PlayerHealth Health { get; }
+    Health Health { get; }
     PlayerInventory Inventory { get; }
+    FlashLight FlashLight { get; }
 }
