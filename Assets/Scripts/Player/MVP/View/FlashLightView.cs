@@ -18,4 +18,9 @@ public class FlashLightView : BasePlayerView
 
         _chargeViewText.text = $"Charge: {((int)Presenter.FlashLight.Charge)}";
     }
+
+    public void TurnFlashLight()
+    {
+        Presenter.FlashLight.TurnFlashLight();
+    }
 }

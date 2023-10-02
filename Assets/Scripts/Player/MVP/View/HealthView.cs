@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class HealthView : MonoBehaviour
+public class HealthView : BasePlayerView
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private TMP_Text _healthViewText;
+
+    public override void InitView(IPlayerPresenter presenter)
     {
-        
+        base.InitView(presenter);
+        Presenter.Health.HealthChanged += UpdateHealthView;
+
+        UpdateHealthView();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateHealthView() 
     {
-        
+        _healthViewText.text = $"Health: {Presenter.Health.CurrentHealth}";
     }
 }

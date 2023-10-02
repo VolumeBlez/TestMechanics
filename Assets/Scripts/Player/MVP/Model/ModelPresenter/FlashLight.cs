@@ -4,7 +4,7 @@ public sealed class FlashLight
 {
     private GameObject _light;
     private bool _isActive = false;
-    private bool _isTurnable = true; // if charge <= 0 then you can't turn on\off light
+    private bool _isTurnable = true; // if false then you can't turn on\off light
     private float _charge = 100f;
 
     public bool IsActive => _isActive;

@@ -15,6 +15,7 @@ public sealed class Health
     {
         _data = data;
         CurrentHealth = data.MaxHealth;
+        UpdateHealth();
     }
 
     public void Increment(int amount)
