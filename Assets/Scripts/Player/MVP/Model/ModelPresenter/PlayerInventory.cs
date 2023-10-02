@@ -1,19 +1,26 @@
+using System;
 using UnityEngine;
 
 public sealed class PlayerInventory
 {
-    private int _maxCount = 4;
-    private int _count = 0;
+    public Action ProductCountChanged;
 
-    public void Increase()
+    private int _maxProductCount = 4;
+    private int _productCount = 0;
+
+    public int ProductCount => _productCount;
+
+    public void AddProduct()
     {
-        if(_count + 1 == _maxCount) return;
-        _count++;
+        if(_productCount == _maxProductCount) return;
+        _productCount++;
+        ProductCountChanged?.Invoke();
     }
 
-    public void Decrease()
+    public void RemoveProduct()
     {
-        if(_count < 2) return;
-        _count--;
+        if(_productCount <= 0) return;
+        _productCount--;
+        ProductCountChanged?.Invoke();
     }
 }
