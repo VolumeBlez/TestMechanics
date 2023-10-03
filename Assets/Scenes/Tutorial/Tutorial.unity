@@ -4019,7 +4019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lightning: {fileID: 1633593607}
-  _force: 1.2
+  _force: 12
 --- !u!1001 &1582056405
 PrefabInstance:
   m_ObjectHideFlags: 0

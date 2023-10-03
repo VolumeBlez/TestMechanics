@@ -46,6 +46,6 @@ public sealed class PlayerPresenter : IPlayerPresenter
 
     public void SetImpact(Vector3 direction, float force) 
     {
-        _model.Rb.AddForce(direction * force, ForceMode.VelocityChange);
+        _model.Rb.AddForce(direction * force, ForceMode.Impulse);
     }
 }
