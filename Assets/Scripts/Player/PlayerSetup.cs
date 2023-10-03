@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 
 public class PlayerSetup : MonoBehaviour
@@ -11,7 +12,7 @@ public class PlayerSetup : MonoBehaviour
     [SerializeField] private PlayerPresenterView _presenterView;
     [SerializeField] private BasePlayerView[] _views;
 
-    void Start()
+    public void Init()
     {
         PlayerModel model = new(_data, _controller, _rotateObject, _camera);
         PlayerPresenter presenter = new(model);

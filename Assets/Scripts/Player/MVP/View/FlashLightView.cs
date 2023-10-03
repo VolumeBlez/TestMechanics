@@ -14,9 +14,10 @@ public class FlashLightView : BasePlayerView
 
     void Update()
     {
+        if(Presenter.FlashLight.IsActive == false) return;
         Presenter.FlashLight.Charge = Presenter.FlashLight.Charge - Time.deltaTime;
 
-        _chargeViewText.text = $"Charge: {((int)Presenter.FlashLight.Charge)}";
+        _chargeViewText.text = $"Charge: {(int)Presenter.FlashLight.Charge}";
     }
 
     public void TurnFlashLight()

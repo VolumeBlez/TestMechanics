@@ -1,9 +1,38 @@
-using UnityEngine;
+using System;
 
-public class ProductCreator : MonoBehaviour, IInteractable
+public class ProductCreator
 {
-    public void Interact(IPlayerPresenter presenter)
+    public Action ProductCreated;
+
+    private readonly float _creationReloadTime;
+    private float _currentTime;
+    private int _productCount;
+
+    public ProductCreator(float reloadTime)
     {
-        presenter.Inventory.AddProduct();
+        _creationReloadTime = reloadTime;
+        _currentTime = 0f;
+        _productCount = 0;
+    }
+
+    public void UpdateTime(float deltaTime)
+    {
+        if(_currentTime >= _creationReloadTime)
+        {
+            _currentTime = 0f;
+            _productCount++;
+            ProductCreated?.Invoke();
+            return;
+        }
+
+        _currentTime += deltaTime;
+    }
+
+    public bool TryRemoveProduct()
+    {
+        if(_productCount <= 0) return false;
+        _productCount--;
+
+        return true;
     }
 }

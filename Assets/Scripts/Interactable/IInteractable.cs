@@ -1,5 +1,5 @@
 public interface IInteractable
 {
-    void Interact(IPlayerPresenter presenter);
+    void Interact(IPlayerPresenter playerPresenter);
 
 }

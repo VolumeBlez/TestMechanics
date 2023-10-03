@@ -3,8 +3,8 @@ using UnityEngine;
 public class ChangeSpeed : MonoBehaviour, IInteractable
 {
     [SerializeField] private int value = 12;
-    public void Interact(IPlayerPresenter presenter)
+    public void Interact(IPlayerPresenter playerPresenter)
     {
-        presenter.SetNewMoveSpeed(value);
+        playerPresenter.SetNewMoveSpeed(value);
     }
 }

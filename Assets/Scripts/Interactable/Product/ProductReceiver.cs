@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class ProductReceiver : MonoBehaviour, IInteractable
 {
-    public void Interact(IPlayerPresenter presenter)
+    public void Interact(IPlayerPresenter playerPresenter)
     {
-        presenter.Inventory.RemoveProduct();
+        playerPresenter.Inventory.RemoveProduct();
     }
 }

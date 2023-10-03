@@ -7,7 +7,7 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private AnimationClip _closeClip;
     [SerializeField] private bool _isOpened;
 
-    public void Interact(IPlayerPresenter presenter)
+    public void Interact(IPlayerPresenter playerPresenter)
     {
         _isOpened = !_isOpened;
 
