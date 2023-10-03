@@ -19,7 +19,7 @@ public class InputService : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void EnableInput()
     {
         Input.Enable();
 
