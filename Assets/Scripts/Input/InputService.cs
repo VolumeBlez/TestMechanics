@@ -19,6 +19,12 @@ public class InputService : MonoBehaviour
         }
     }
 
+    private void Start() 
+    {
+        //EnableInput();
+    }
+
+    [ContextMenu("Enable Input Manual")]
     public void EnableInput()
     {
         Input.Enable();

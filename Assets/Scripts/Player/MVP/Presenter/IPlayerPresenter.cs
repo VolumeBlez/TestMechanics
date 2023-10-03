@@ -10,5 +10,6 @@ public interface IPlayerPresenter
     void SetNewMoveSpeed(float newSpeed);
 
     void SetMove(Vector3 moveDirection);
+    void SetImpact(Vector3 direction, float force);
     void SetRotation(Vector2 rotation, ref float xRotation);
 }

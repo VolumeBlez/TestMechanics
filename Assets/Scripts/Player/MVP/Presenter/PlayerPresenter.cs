@@ -17,11 +17,6 @@ public sealed class PlayerPresenter : IPlayerPresenter
         _model.Data.SetMoveSpeed(newMoveSpeed);
     }
 
-    public void SetMove(Vector3 moveDirection)
-    {
-        _model.CharacterController.Move(moveDirection * _model.Data.MoveSpeed);
-    }
-
     public void SetRotation(Vector2 rotation, ref float xRotation)
     {
         rotation = rotation * _model.Data.MouseSens * Time.deltaTime;
@@ -42,5 +37,15 @@ public sealed class PlayerPresenter : IPlayerPresenter
             if(hit.transform.TryGetComponent(out IInteractable interactable))
                 interactable.Interact(this);
         }
+    }
+
+    public void SetMove(Vector3 moveDirection)
+    {
+        _model.Rb.MovePosition(_model.Rb.position + moveDirection * _model.Data.MoveSpeed);
+    }
+
+    public void SetImpact(Vector3 direction, float force) 
+    {
+        _model.Rb.AddForce(direction * force, ForceMode.VelocityChange);
     }
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49f2e96e20a4004eae9e1d1d41ccab0, type: 3}
   m_Name: Player Data
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 40
   _moveSpeed: 8
   _mouseSens: 7

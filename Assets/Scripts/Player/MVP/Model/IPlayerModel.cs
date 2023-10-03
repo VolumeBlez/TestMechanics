@@ -1,10 +1,9 @@
-using Cinemachine;
 using UnityEngine;
 
 public interface IPlayerModel
 {
     PlayerData Data { get; }
-    CharacterController CharacterController { get; }
+    Rigidbody Rb { get; }
     Transform RotateObject { get; }
     Camera Camera { get; }
 
