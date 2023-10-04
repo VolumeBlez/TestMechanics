@@ -8,6 +8,9 @@ public class InputService : MonoBehaviour
     [SerializeField] private PlayerRotateView _rotate;
     [SerializeField] private FlashLightView _flashLight;
 
+    [Header("CutScene")]
+    [SerializeField] private ExitCutScene _exitCutScene;
+
     private Input _input;
 
     public Input Input
@@ -21,14 +24,14 @@ public class InputService : MonoBehaviour
 
     private void Start() 
     {
-        //EnableInput();
+        Input.Enable();
+        Input.Gameplay.ExitCutScene.performed += ctx => _exitCutScene.Exit();
+        
     }
 
     [ContextMenu("Enable Input Manual")]
-    public void EnableInput()
+    public void EnablePlayerInput()
     {
-        Input.Enable();
-
         Input.Gameplay.Move.performed += ctx => _move.SetDirectionAction(ctx.ReadValue<Vector2>());
         Input.Gameplay.Move.canceled += ctx => _move.ResetAction();
 

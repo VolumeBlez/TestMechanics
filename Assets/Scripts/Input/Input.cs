@@ -71,6 +71,15 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ExitCutScene"",
+                    ""type"": ""Button"",
+                    ""id"": ""983f6f31-0bb8-415e-8503-4d4609bf6ca2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""action"": ""FlashLight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37964948-101a-411c-80b2-dec9c065907f"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ExitCutScene"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +205,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_FlashLight = m_Gameplay.FindAction("FlashLight", throwIfNotFound: true);
+        m_Gameplay_ExitCutScene = m_Gameplay.FindAction("ExitCutScene", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,6 +270,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_FlashLight;
+    private readonly InputAction m_Gameplay_ExitCutScene;
     public struct GameplayActions
     {
         private @Input m_Wrapper;
@@ -258,6 +280,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @FlashLight => m_Wrapper.m_Gameplay_FlashLight;
+        public InputAction @ExitCutScene => m_Wrapper.m_Gameplay_ExitCutScene;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -282,6 +305,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @FlashLight.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFlashLight;
                 @FlashLight.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFlashLight;
                 @FlashLight.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFlashLight;
+                @ExitCutScene.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnExitCutScene;
+                @ExitCutScene.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnExitCutScene;
+                @ExitCutScene.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnExitCutScene;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -301,6 +327,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @FlashLight.started += instance.OnFlashLight;
                 @FlashLight.performed += instance.OnFlashLight;
                 @FlashLight.canceled += instance.OnFlashLight;
+                @ExitCutScene.started += instance.OnExitCutScene;
+                @ExitCutScene.performed += instance.OnExitCutScene;
+                @ExitCutScene.canceled += instance.OnExitCutScene;
             }
         }
     }
@@ -312,5 +341,6 @@ public partial class @Input : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnFlashLight(InputAction.CallbackContext context);
+        void OnExitCutScene(InputAction.CallbackContext context);
     }
 }
